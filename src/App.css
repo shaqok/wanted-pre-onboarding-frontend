@@ -13,6 +13,16 @@
   font-size: xx-large;
 }
 
+.todo-container {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+
+.todo-ul {
+  width: 50%;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

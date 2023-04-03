@@ -15,9 +15,12 @@ const TodoList = () => {
     setTodoInput('');
   }
 
-  const updateTodo = async (data) => {
+  const updateTodo = async (data, type) => {
     const { id, todo, isCompleted } = data;
-    const response = await makeRequest(`/todos/${id}`, 'put', { todo, isCompleted: !isCompleted }, true);
+    const response = type === 'check' 
+    ? await makeRequest(`/todos/${id}`, 'put', { todo, isCompleted: !isCompleted }, true)
+    : await makeRequest(`/todos/${id}`, 'put', { todo, isCompleted }, true);
+
     if (response.status === 200) {
       const newTodos = todos.map((todo) => {
         if (todo.id === id) {
@@ -48,7 +51,6 @@ const TodoList = () => {
 
     getTodos();
   }, [])
-  
 
   return (
     <div className='todo-container'>

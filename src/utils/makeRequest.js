@@ -3,7 +3,7 @@ import axios from 'axios';
 // const url = `https://pre-onboarding-selection-task.shop`;
 const url = `http://localhost:8000`;
 
-export const makeRequest = async (path, method, payload, hasToken) => {
+export const makeRequest = async (path, method, payload=null, hasToken) => {
   const headers = hasToken ? {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${localStorage.getItem('access_token')}`
@@ -11,13 +11,19 @@ export const makeRequest = async (path, method, payload, hasToken) => {
     'Content-Type': 'application/json'
   };
 
+  const config = payload ? {
+    url: `${url}${path}`,
+    method,
+    headers,
+    data: payload,
+  } : {
+    url: `${url}${path}`,
+    method,
+    headers,
+  }
+
   try {
-    const response = await axios.request({
-      url: `${url}${path}`,
-      method,
-      headers,
-      data: payload,
-    });
+    const response = await axios.request(config);
     return response;
   } catch (error) {
     console.error(error)

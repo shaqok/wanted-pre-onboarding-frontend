@@ -1,7 +1,7 @@
 import React from 'react'
 
-const TodoItem = ({ data, updateTodo }) => {
-  const { todo, isCompleted } = data;
+const TodoItem = ({ data, updateTodo, deleteTodo }) => {
+  const { id, todo, isCompleted } = data;
 
   return (
     <li>
@@ -13,6 +13,8 @@ const TodoItem = ({ data, updateTodo }) => {
         />
         <span>{todo}</span>
       </label>
+      <button data-testid="modify-button">수정</button>
+      <button data-testid="delete-button" onClick={() => deleteTodo(id)}>삭제</button>
     </li>
   )
 }

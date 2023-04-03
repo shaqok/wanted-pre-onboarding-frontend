@@ -30,6 +30,14 @@ const TodoList = () => {
     }
   }
 
+  const deleteTodo = async (id) => {
+    const response = await makeRequest(`/todos/${id}`, 'delete', null, true);
+    if (response.status === 204) {
+      const newTodos = todos.filter((todo) => todo.id !== id);
+      setTodos(newTodos)
+    }
+  }
+
   useEffect(() => {
     const getTodos = async () => {
       const response = await makeRequest('/todos', 'get', null, true);
@@ -56,7 +64,12 @@ const TodoList = () => {
 
       <ul className='todo-ul'>
         {todos && todos.map((data) => 
-          <TodoItem key={data.id} data={data} updateTodo={updateTodo} />
+          <TodoItem 
+            key={data.id} 
+            data={data} 
+            updateTodo={updateTodo} 
+            deleteTodo={deleteTodo}
+          />
         )}
       </ul>
     </div>

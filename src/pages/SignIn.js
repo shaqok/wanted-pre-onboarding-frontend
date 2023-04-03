@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import LoginForm from '../components/LoginForm';
 import { useNavigate } from 'react-router-dom';
 import { makeRequest } from '../utils/makeRequest';
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const [showLoginForm, setShowLoginForm] = useState(false);
 
   const onSignIn = async (email, password) => {
     const body = { email, password }
@@ -15,9 +16,18 @@ const SignIn = () => {
     }
   }
 
+  useEffect(() => {
+    const access_token = localStorage.getItem('access_token');
+    if (access_token) {
+      navigate('/todo')
+    } else {
+      setShowLoginForm(true);
+    }
+  }, [navigate])
+
   return (
     <div>
-      <LoginForm onSubmit={onSignIn} buttonText='SignIn' />
+      {showLoginForm && <LoginForm onSubmit={onSignIn} buttonText='SignIn' />}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const url = `https://pre-onboarding-selection-task.shop`;
-const url = `http://localhost:8000`;
+const url = `https://www.pre-onboarding-selection-task.shop`;
+// const url = `http://localhost:8000`;
 
 export const makeRequest = async (path, method, payload=null, hasToken) => {
   const headers = hasToken ? {

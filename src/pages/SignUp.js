@@ -26,9 +26,9 @@ const SignUp = () => {
   
 
   return (
-    <div>
+    <>
       {showLoginForm && <LoginForm onSubmit={onSignUp} buttonText='SignUp' />}
-    </div>
+    </>
   )
 }
 

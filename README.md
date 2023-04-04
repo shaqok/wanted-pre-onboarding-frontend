@@ -9,7 +9,7 @@
 - `npm start` 커맨드를 통해 해당 리액트 앱을 실행시킬 수 있습니다.
 ## 프로젝트 데모
 
-### [데모 링크]([wanted-pre-onboarding-frontend-sepia.vercel.app](https://wanted-pre-onboarding-frontend-shaqok.vercel.app/))
+### [데모 링크](https://wanted-pre-onboarding-frontend-shaqok.vercel.app/)
 
 해당 프로젝트의 데모는 [vercel](https://vercel.com/dashboard)을 사용하여 배포되었습니다.
 

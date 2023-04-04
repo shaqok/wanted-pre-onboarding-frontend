@@ -23,8 +23,6 @@ const LoginForm = ({ onSubmit, buttonText }) => {
       <div>
         <label htmlFor="email">Email:</label>
         <input
-          type="email"
-          id="email"
           data-testid="email-input"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
@@ -35,7 +33,6 @@ const LoginForm = ({ onSubmit, buttonText }) => {
         <label htmlFor="password">Password:</label>
         <input
           type="password"
-          id="password"
           data-testid="password-input"
           value={password}
           onChange={(event) => setPassword(event.target.value)}

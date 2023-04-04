@@ -26,7 +26,7 @@ export const makeRequest = async (path, method, payload=null, hasToken) => {
     const response = await axios.request(config);
     return response;
   } catch (error) {
-    console.error(error)
-    throw new Error(error.message)
+    console.error(error);
+    return error.response;
   }
 }

@@ -12,6 +12,8 @@ const SignUp = () => {
     const response = await makeRequest('/auth/signup', 'post', body, false);
     if (response.status === 201) {
       navigate('/signin');
+    } else {
+      alert('이미 존재하는 계정이거나 오류가 발생했습니다.');
     }
   }
 

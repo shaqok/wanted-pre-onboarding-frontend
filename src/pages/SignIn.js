@@ -13,6 +13,8 @@ const SignIn = () => {
     if (response.status === 200) {
       localStorage.setItem('access_token', response.data.access_token);
       navigate('/todo');
+    } else {
+      alert('비밀번호가 다르거나 가입되지 않은 계정입니다.')
     }
   }
 

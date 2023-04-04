@@ -13,6 +13,31 @@
   font-size: xx-large;
 }
 
+.main-container {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main-btn {
+  background: #2975CA;
+  color: white;
+  font-weight: normal;
+  padding: 12px 20px 14px 20px;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  border-radius: 3px;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.4);
+}
+
+.main-btn:hover {
+  background-color: #10529C;
+  cursor: pointer;
+}
+
 .todo-container {
   display: flex;
   flex-direction: column;
@@ -22,6 +47,19 @@
 
 .todo-ul {
   width: 50%;
+}
+
+.todo-li {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px 10px 0px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.todo-li:hover {
+  box-shadow: 0px 0px 3px gray;;
 }
 
 /* .App-logo {

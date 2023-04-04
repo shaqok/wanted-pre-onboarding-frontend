@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import '../App.css'
 
 const TodoItem = ({ data, updateTodo, deleteTodo }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -11,7 +12,7 @@ const TodoItem = ({ data, updateTodo, deleteTodo }) => {
   }
 
   return (
-    <li>
+    <li className='todo-li'>
       <label>
         <input 
           type="checkbox" 
@@ -25,7 +26,7 @@ const TodoItem = ({ data, updateTodo, deleteTodo }) => {
         )}
       </label>
       {isEdit ? (
-        <>
+        <div>
           <button 
             data-testid="submit-button" 
             onClick={handleSubmit}
@@ -33,12 +34,12 @@ const TodoItem = ({ data, updateTodo, deleteTodo }) => {
             제출
           </button>
           <button data-testid="cancel-button" onClick={() => setIsEdit(false)}>취소</button>
-        </>
+        </div>
       ) : (
-        <>
+        <div>
           <button data-testid="modify-button" onClick={() => setIsEdit(true)}>수정</button>
           <button data-testid="delete-button" onClick={() => deleteTodo(id)}>삭제</button>
-        </>
+        </div>
       )}
     </li>
   )
